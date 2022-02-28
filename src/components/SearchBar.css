@@ -1,0 +1,17 @@
+.searchbar form {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+.searchbar form input {
+    width: 20%;
+}
+.searchbar form .width-big {
+    width: 60%;
+    transition: all 500ms ease-in-out;
+}
+.searchbar form label {
+    padding-right: 10px;
+    padding-top: 7px;
+    color: #fff;
+}
