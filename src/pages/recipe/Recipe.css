@@ -1,3 +1,7 @@
+.single-recipe.Dark {
+    color: #eee;
+    background-color: #777;
+  }
 .single-recipe {
   background: #fff;
   max-width: 1200px;

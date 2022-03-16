@@ -54,6 +54,15 @@
       "cookingTime": "70 minutes",
       "method": "I cant tell you",
       "id": "uC9DpSy"
+    },
+    {
+      "title": "Maggie",
+      "ingridents": [
+        "Noodles"
+      ],
+      "cookingTime": "80 minutes",
+      "method": "None",
+      "id": "LV0H1Rq"
     }
   ]
 }

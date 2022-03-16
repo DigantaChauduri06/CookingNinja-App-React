@@ -1,3 +1,7 @@
+.recipe-list.Dark > .card {
+  background-color: #888;
+  color: #eee;
+}
 .recipe-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
