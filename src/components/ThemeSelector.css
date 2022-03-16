@@ -1,0 +1,23 @@
+.ThemeSelector {
+    width: 95vw;
+    display: block;
+    text-align: end;
+}
+.ThemeSelector > div {
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 55%;
+    cursor: pointer;
+}
+.ThemeSelector > div:last-child {
+    margin-right: 0;
+}
+.ThemeSelector > .mode {
+    margin-top: 0;
+}
+.ThemeSelector .mode img {
+    padding-bottom: 7px;
+    padding-right: 10px;
+    width: 100%;
+}
