@@ -53,13 +53,18 @@ function Create() {
       ingridentInput.current.focus();
     }
   };
+  const LightColor = () => {
+    console.log(mode);
+
+    if (mode !== "Dark") return { color: "#1f1f1f" };
+  };
 
   return (
     <div className={`create ${mode}`}>
       <h2 className="title-form">Add A New Recipe</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          <span>Recipe title: </span>
+          <span style={LightColor()}>Recipe title: </span>
           <input
             type="text"
             onChange={(e) => setTitle(e.target.value)}
@@ -68,7 +73,7 @@ function Create() {
           />
         </label>
         <label>
-          <span>Cooking Time (In minutes): </span>
+          <span style={LightColor()}>Cooking Time (In minutes): </span>
           <input
             type="number"
             onChange={(e) => setTime(e.target.value)}
@@ -77,7 +82,7 @@ function Create() {
           />
         </label>
         <label>
-          <span>Recipe Ingridients</span>
+          <span style={LightColor()}>Recipe Ingridients</span>
           <div className="ingidrients">
             <input
               type="text"
@@ -93,21 +98,21 @@ function Create() {
         <p className="ingi-list">
           {ingridents.map((ingi, idx) => {
             return (
-              <span key={idx} className="ingi-list-items">
+              <span key={idx} className="ingi-list-items" style={LightColor()}>
                 {ingi}
               </span>
             );
           })}
         </p>
         <label>
-          <span>Cooking method: </span>
+          <span style={LightColor()}>Cooking method: </span>
           <textarea
             onChange={(e) => setMethod(e.target.value)}
             value={method}
             required
           />
         </label>
-        <div className="button-area">
+        <div className="button-area" style={LightColor()}>
           <button className="btn">Submit</button>
         </div>
       </form>

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import RecipeList from "../../components/RecipeList";
-import useFetch from "../../hooks/useFetch";
+import { projectFirestore } from "../../firebase/config";
 
 import "./Search.css";
 
@@ -9,9 +9,34 @@ function Search() {
   const [searchParams] = useSearchParams();
   // const quereyParams = new URLSearchParams();
   // searchParams.get("q");
+  const [data, setData] = useState([]);
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState(null);
   const query = searchParams.get("q");
-  const url = `http://localhost:8080/recipes?q=${query}`;
-  const { data, isPending, error } = useFetch(url);
+  console.log(query);
+
+  useEffect(() => {
+    setIsPending(true);
+    projectFirestore
+      .collection("recipes")
+      .get(query)
+      .then((doc) => {
+        // console.log(doc.docs[0].data());
+        if (!doc.empty) {
+          const result = [];
+          doc.forEach((e) => {
+            result.push({ id: e.id, ...e.data() });
+          });
+          console.log(result);
+          setData(result);
+          setIsPending(false);
+        }
+      })
+      .catch((e) => {
+        setError(e.message);
+        setIsPending(false);
+      });
+  }, []);
   return (
     <div>
       <h2 className="page-title">Recipe Including "{query}"</h2>
